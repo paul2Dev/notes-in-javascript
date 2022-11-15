@@ -4,57 +4,52 @@
   <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css">
     <title>Vite App</title>
   </head>
   <body>
     <div class="notes">
-      <div class="notes-sidebar">
-        <div class="notes-sidebar-header">
-          <button class="notes-sidebar-add">Add Note</button>
-        </div>
-        <div class="notes-list">
-          <div class="note-list-item">
-            <div class="note-list-item_title">Note 1</div>
-            <div class="note-list-item_text">
+      <div class="notes__sidebar">
+
+        <button class="notes__add">Add Note</button>
+
+        <div class="notes__list">
+          <div class="note__list-item">
+            <div class="notes__small-title">Note 1</div>
+            <div class="notes__small-body">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
               ultricies, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, ut
               aliquet nunc nisl eget nisl.
             </div>
-            <div class="note-list-item_date">2021-01-01</div>
+            <div class="notes__small-updated">2021-01-01</div>
           </div>
-          <div class="note-list-item">
-            <div class="note-list-item_title">Note 2</div>
-            <div class="note-list-item_text">
+          <div class="note__list-item">
+            <div class="notes__small-title">Note 2</div>
+            <div class="notes__small-body">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
               ultricies, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, ut
               aliquet nunc nisl eget nisl.
             </div>
-            <div class="note-list-item_date">2021-01-01</div>
+            <div class="notes__small-updated">2021-01-01</div>
           </div>
-          <div class="note-list-item">
-            <div class="note-list-item_title">Note 3</div>
-            <div class="note-list-item_text">
+          <div class="note__list-item">
+            <div class="notes__small-title">Note 3</div>
+            <div class="notes__small-body">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
               ultricies, nunc vel tincidunt lacinia, nunc nisl aliquet nisl, ut
               aliquet nunc nisl eget nisl.
             </div>
-            <div class="note-list-item_date">2021-01-01</div>
+            <div class="notes__small-updated">2021-01-01</div>
           </div>
         </div>
       </div>
 
-      <div class="note-content">
-        <div class="note-content_header">
-          <input type="text" value="Note 1">
-        </div>
-        <div class="note-content_body">
-          <textarea>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam voluptates, quod, quia, voluptate quae voluptatem quibusdam consequuntur quos voluptatibus quas nesciunt. Quisquam, quae voluptate. Quisquam, quae voluptate. Quisquam, quae voluptate.
-          </textarea>
-        </div>
+      <div class="notes__preview">
+          <input type="text" class="notes__title" placeholder="Enter a title...">
+          <textarea class="notes__body">Notes body goes here...</textarea>
       </div>
     </div>
 
-    <script type="module" src="/main.js"></script>
+    <script type="module" src="/js/main.js"></script>
   </body>
 </html>

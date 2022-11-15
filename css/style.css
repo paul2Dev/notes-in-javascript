@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.notes {
+    @apply flex flex-row
+}
+
+.notes__sidebar {
+    @apply w-1/5 p-5 border-r-2 border-slate-900
+}
+
+.notes__add {
+    @apply bg-emerald-600 text-white py-4 rounded-lg text-center w-full text-xl mb-2
+}
+
+.notes__preview {
+    @apply w-4/5 bg-slate-100 p-8
+}
+
+.notes__list .note__list-item {
+    @apply bg-slate-100 p-4 mb-2 rounded-lg font-semibold
+}
+
+.notes__list .note__list-item .notes__small-title{
+    @apply text-lg font-bold
+}
+
+.notes__list .note__list-item .notes__small-updated{
+    @apply text-xs text-slate-500 text-right
+}
+
+.notes__title {
+    @apply text-4xl font-bold mb-4 bg-slate-100
+}
+
+
+.notes__body {
+    @apply bg-slate-100 w-full h-full
+}
+
+.notes__body:focus, .notes__title:focus {
+    outline: none;
+}
