@@ -1,4 +1,21 @@
 import NotesAPI from './NotesAPI';
+import NotesView from './NotesView';
+
+const app = document.getElementById('app')
+const view = new NotesView(app, {
+    onNoteSelect: (note) => {
+        console.log('Selected note:', note);
+    },
+    onNoteAdd: () => {
+        console.log('Add note')
+    },
+    onNoteEdit: (newTitle, newBody) => {
+        console.log(newTitle, newBody);
+    },
+    onNoteDelete: (note) => {
+        console.log('Delete note:', note);
+    }
+})
 
 //save note
 //NotesAPI.saveNote({
