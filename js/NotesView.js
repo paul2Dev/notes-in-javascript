@@ -34,6 +34,9 @@ export default class NotesView {
                 this.onNoteEdit(updatedTitle, updatedBody);
             })
         });
+
+        this.updateNotePreviewVisibility(false);
+
     }
 
     _createListItemHTML(id, title, body, updated) {
@@ -51,14 +54,42 @@ export default class NotesView {
     }
 
     updateNoteList(notes) {
-        const list = this.root.querySelector('.notes__list');
-        list.innerHTML = '';
+        const notesList = this.root.querySelector('.notes__list');
+        notesList.innerHTML = '';
 
         for(let note of notes) {
             const html = this._createListItemHTML(note.id, note.title, note.body, new Date(note.updated));
 
-            list.insertAdjacentHTML('beforeend', html);
+            notesList.insertAdjacentHTML('beforeend', html);
         }
+
+        notesList.querySelectorAll('.notes__list-item').forEach(notesItem => {
+            notesItem.addEventListener('click', () => {
+                this.onNoteSelect(notesItem.dataset.noteId);
+            });
+
+            notesItem.addEventListener('dblclick', (e) => {
+                const confirmDelete = confirm('Are you sure you want to delete this note?');
+                if(confirmDelete) {
+                    this.onNoteDelete(notesItem.dataset.noteId);
+                }
+            });
+        });
+    }
+
+    updateSelectedNote(note) {
+        this.root.querySelector('.notes__title').value = note.title;
+        this.root.querySelector('.notes__body').value = note.body;
+
+        this.root.querySelectorAll('.notes__list-item').forEach(notesItem => {
+            notesItem.classList.remove('notes__list-item--selected');
+        });
+
+        this.root.querySelector(`.notes__list-item[data-note-id="${note.id}"]`).classList.add('notes__list-item--selected');
+    }
+
+    updateNotePreviewVisibility(visible) {
+        this.root.querySelector('.notes__preview').style.display = visible ? 'block' : 'none';
     }
 
 }

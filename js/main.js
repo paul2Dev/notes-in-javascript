@@ -3,8 +3,8 @@ import NotesView from './NotesView';
 
 const app = document.getElementById('app')
 const view = new NotesView(app, {
-    onNoteSelect: (note) => {
-        console.log('Selected note:', note);
+    onNoteSelect: (noteId) => {
+        console.log('Selected note:', noteId);
     },
     onNoteAdd: () => {
         console.log('Add note')
@@ -17,7 +17,10 @@ const view = new NotesView(app, {
     }
 })
 
-view.updateNoteList(NotesAPI.getAllNotes());
+const notes = NotesAPI.getAllNotes();
+
+view.updateNoteList(notes);
+view.updateSelectedNote(notes[0]);
 
 //save note
 //NotesAPI.saveNote({
