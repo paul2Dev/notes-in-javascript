@@ -18,15 +18,15 @@
     @apply w-4/5 bg-slate-100 p-8
 }
 
-.notes__list .note__list-item {
+.notes__list .notes__list-item {
     @apply bg-slate-100 p-4 mb-2 rounded-lg font-semibold
 }
 
-.notes__list .note__list-item .notes__small-title{
+.notes__list .notes__list-item .note__small-title{
     @apply text-lg font-bold
 }
 
-.notes__list .note__list-item .notes__small-updated{
+.notes__list .notes__list-item .note__small-updated{
     @apply text-xs text-slate-500 text-right
 }
 

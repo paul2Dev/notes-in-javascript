@@ -17,6 +17,8 @@ const view = new NotesView(app, {
     }
 })
 
+view.updateNoteList(NotesAPI.getAllNotes());
+
 //save note
 //NotesAPI.saveNote({
 //     title: 'My new note',

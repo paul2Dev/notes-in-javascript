@@ -40,14 +40,25 @@ export default class NotesView {
         const MAX_BODY_LENGTH = 60;
         return `
             <div class="notes__list-item" data-note-id="${id}">
-                <div class="notes__small-title">${title}</div>
-                <div class="notes__small-body">
+                <div class="note__small-title">${title}</div>
+                <div class="note__small-body">
                     ${body.substring(0, MAX_BODY_LENGTH)}
                     ${body.length > MAX_BODY_LENGTH ? '...' : ''}
                 </div>
-                <div class="notes__small-updated">${updated.toLocaleString(undefined, { dateStyle: "full", timeStyle: "short" })}</div>
+                <div class="note__small-updated">${updated.toLocaleString(undefined, { dateStyle: "full", timeStyle: "short" })}</div>
             </div>
         `;
+    }
+
+    updateNoteList(notes) {
+        const list = this.root.querySelector('.notes__list');
+        list.innerHTML = '';
+
+        for(let note of notes) {
+            const html = this._createListItemHTML(note.id, note.title, note.body, new Date(note.updated));
+
+            list.insertAdjacentHTML('beforeend', html);
+        }
     }
 
 }
